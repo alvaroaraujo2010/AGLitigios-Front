@@ -1,0 +1,14 @@
+# Usar este archivo en la RAÍZ del repo AGLitigios-Front (copiar o renombrar como netlify.toml en GitHub).
+# No uses base = "frontend" ni rutas absolutas como /opt/build.
+
+[build]
+  command = "npm ci && npm run build"
+  publish = "dist/frontend/browser"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,21 @@
+<div class="admin-shell">
+  <header class="admin-top">
+    <div class="admin-brand">
+      <span class="admin-brand__logo-wrap" aria-hidden="true">
+        <img
+          class="admin-brand__logo"
+          src="/assets/images/brand/logo-white.png"
+          alt=""
+        />
+      </span>
+      <span class="admin-brand__label">Panel</span>
+    </div>
+    <nav class="admin-nav">
+      <a routerLink="/admin/citas" routerLinkActive="is-active">Citas</a>
+      <button type="button" class="linkish" (click)="logout()">Cerrar sesión</button>
+    </nav>
+  </header>
+  <main class="admin-main">
+    <router-outlet />
+  </main>
+</div>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" role="img" aria-label="">
+  <defs>
+    <linearGradient id="hg" x1="0" y1="0" x2="560" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a2d4a"/>
+      <stop offset="0.45" stop-color="#0c1a2e"/>
+      <stop offset="1" stop-color="#3d2e1a"/>
+    </linearGradient>
+    <linearGradient id="hi" x1="280" y1="0" x2="280" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="420" fill="url(#hg)"/>
+  <rect width="560" height="420" fill="url(#hi)"/>
+  <g fill="none" stroke="#a68958" stroke-opacity="0.35" stroke-width="1.2">
+    <path d="M40 80h120M40 120h100M40 160h110M40 200h95"/>
+    <path d="M400 80h120M420 120h100M410 160h110M425 200h95"/>
+  </g>
+  <rect x="220" y="60" width="120" height="300" rx="4" fill="#0c1a2e" fill-opacity="0.45" stroke="#a68958" stroke-opacity="0.4"/>
+  <path fill="none" stroke="#c4a574" stroke-width="2" stroke-opacity="0.5" d="M250 120h60M250 150h50M250 180h55M250 210h45"/>
+  <text x="280" y="395" text-anchor="middle" fill="#e8e4dc" fill-opacity="0.35" font-family="Georgia,serif" font-size="13">Imagen provisional</text>
+</svg>

@@ -1,0 +1,128 @@
+<section class="promo" aria-label="Promoción">
+  <p>{{ site.promo }}</p>
+</section>
+
+<section class="banner" aria-label="AG Litigios COL">
+  <div class="banner__split">
+    <div class="banner__photo">
+      <img
+        class="banner__photo-img"
+        src="/assets/images/brand/banner-gavel.jpg"
+        srcset="
+          /assets/images/brand/banner-gavel-1280.jpg 1280w,
+          /assets/images/brand/banner-gavel.jpg 2400w
+        "
+        sizes="(min-width: 900px) 58vw, 100vw"
+        width="2400"
+        height="1600"
+        alt="Martillo y balanza — asesoría jurídica AG Litigios"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+    <div class="banner__brand" aria-hidden="true">
+      <img
+        class="banner__logo"
+        src="/assets/images/brand/logo-footer.png"
+        width="599"
+        height="596"
+        alt=""
+      />
+    </div>
+  </div>
+</section>
+
+<section class="hero">
+  <div class="hero__content">
+    <p class="eyebrow">Medellín · Conquistadores</p>
+    <h1 class="hero__title">{{ site.tagline }}</h1>
+    <p class="hero__lead">{{ site.subtitle }}</p>
+    <p class="hero__quote">
+      Su asunto requiere más que un abogado: necesita una estrategia y un arquitecto legal. Eso
+      somos en AG Litigios.
+    </p>
+    <div class="hero__actions">
+      <a routerLink="/citas" class="btn btn--primary">Agendar mi consulta</a>
+      <a [href]="site.whatsappUrl" class="btn btn--ghost" target="_blank" rel="noopener noreferrer"
+        >WhatsApp</a
+      >
+      <a routerLink="/servicios" class="btn btn--ghost">Ver servicios</a>
+    </div>
+    @if (showApiCheck) {
+      <p
+        class="hero__meta"
+        [class.hero__meta--ok]="apiStatus() === 'ok'"
+        [class.hero__meta--err]="apiStatus() === 'error'"
+      >
+        @if (apiStatus() === 'idle') {
+          <span>Comprobando conexión con el servidor…</span>
+        } @else if (apiStatus() === 'ok') {
+          <span>Sistema de citas en línea disponible.</span>
+        } @else {
+          <span>No se pudo conectar con el API. Compruebe que el backend esté en marcha.</span>
+        }
+      </p>
+    }
+  </div>
+  <aside class="hero__panel" aria-label="Destacados">
+    <figure class="hero__visual">
+      <img
+        class="hero__visual-img"
+        src="assets/images/brand/hero-consultoria.jpg"
+        width="560"
+        height="420"
+        alt="Consulta jurídica profesional"
+      />
+    </figure>
+    <div class="hero__panel-body">
+      <ul class="highlights">
+        <li>
+          <span class="highlights__label">Integridad</span>
+          <span class="highlights__value">Ética y responsabilidad en cada caso</span>
+        </li>
+        <li>
+          <span class="highlights__label">Experiencia</span>
+          <span class="highlights__value">Soluciones confiables y a su medida</span>
+        </li>
+        <li>
+          <span class="highlights__label">Compromiso</span>
+          <span class="highlights__value">Defensa de sus derechos e intereses</span>
+        </li>
+      </ul>
+    </div>
+  </aside>
+</section>
+
+<section class="about">
+  <div class="about__inner">
+    <div class="about__avatar">
+      <div class="about__avatar-circle">
+        <img src="assets/images/brand/about-equipo.jpg" alt="Equipo AG Litigios COL" />
+      </div>
+    </div>
+    <div class="about__content">
+      <p class="eyebrow">Abogados expertos en derecho</p>
+      <h2 class="about__title">Permítanos defender sus derechos</h2>
+      <p class="about__text">
+        {{ site.name }}, firma de abogados ubicada en Medellín, brinda asesoría y representación
+        legal especializada en derecho civil, comercial, laboral, administrativo y de familia,
+        garantizando soluciones confiables, eficientes y a la medida de cada cliente. Nuestro equipo
+        se distingue por su integridad, experiencia y compromiso para proteger sus intereses.
+      </p>
+      <a routerLink="/contacto" class="btn btn--ghost">Ver datos de contacto</a>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="strip__inner">
+    <div>
+      <h2 class="strip__title">¿Necesita orientación legal?</h2>
+      <p class="strip__text">
+        Contáctenos hoy y descubra cómo AG Litigios puede ser su aliado estratégico para resolver
+        sus necesidades jurídicas con confianza y profesionalismo.
+      </p>
+    </div>
+    <a routerLink="/citas" class="btn btn--primary">Solicitar cita</a>
+  </div>
+</section>

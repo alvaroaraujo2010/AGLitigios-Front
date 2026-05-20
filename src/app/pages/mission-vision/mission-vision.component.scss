@@ -1,0 +1,114 @@
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3.5rem;
+}
+
+.page__head h1 {
+  margin: 0.35rem 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3vw, 2.1rem);
+  color: var(--color-navy);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  font-weight: 600;
+}
+
+.page__intro {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--color-muted);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.panels {
+  margin-top: 2.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.35rem;
+  align-items: stretch;
+}
+
+.panel {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: 0 0 1.75rem;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.panel__figure {
+  margin: 0;
+}
+
+.panel__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  max-height: 220px;
+  object-fit: cover;
+}
+
+.panel h2,
+.panel p {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.panel--mission .panel__figure {
+  border-bottom: 3px solid var(--color-navy);
+}
+
+.panel--vision .panel__figure {
+  border-bottom: 3px solid var(--color-accent);
+}
+
+.panel h2 {
+  margin: 1.25rem 0 1rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-navy);
+}
+
+.panel p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.65;
+  font-size: 1rem;
+}
+
+.cta {
+  margin-top: 2.75rem;
+  padding: 1.5rem 1.35rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-navy) 4%, var(--color-bg));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cta p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  max-width: 42ch;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .panels {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,63 @@
+<div class="page">
+  <header class="page__head">
+    <p class="eyebrow">Contáctenos</p>
+    <h1>Estamos en Medellín para atenderle</h1>
+    <p class="page__intro">
+      Nos encanta recibir a nuestros clientes. Visítenos en horario de atención o escríbanos por
+      teléfono, WhatsApp o solicite una cita en línea.
+    </p>
+  </header>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Ubicación</h2>
+      <p class="card__lead">{{ site.addressFull }}</p>
+      <p class="muted">{{ site.hours }}</p>
+    </section>
+
+    <section class="card card--primary">
+      <h2>Teléfono y WhatsApp</h2>
+      <p class="card__lead muted">Atención del despacho {{ site.shortName }}</p>
+      <p>
+        <a [href]="'tel:' + site.phoneTel" class="link link--lg">{{ site.phone }}</a>
+      </p>
+      <p>
+        <a [href]="site.whatsappUrl" class="btn btn--primary" target="_blank" rel="noopener noreferrer"
+          >Mensaje por WhatsApp</a
+        >
+      </p>
+    </section>
+
+    <section class="card card--wide">
+      <h2>Redes sociales</h2>
+      <ul class="social">
+        <li><a [href]="site.social.facebook" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li>
+          <a [href]="site.social.instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </li>
+        <li><a [href]="site.social.youtube" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+      </ul>
+    </section>
+  </div>
+
+  <aside class="contact-aside" aria-label="Otros servicios profesionales">
+    <h2 class="contact-aside__title">{{ site.professional.service }}</h2>
+    <p class="contact-aside__note">{{ site.professional.note }}</p>
+    <p class="contact-aside__meta">
+      <strong>{{ site.professional.name }}</strong>
+      · {{ site.professional.license }}
+      ·
+      <a [href]="'tel:' + site.professional.phoneTel">{{ site.professional.phone }}</a>
+      ·
+      <a [href]="site.professional.whatsappUrl" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </p>
+  </aside>
+
+  <section class="cta">
+    <div>
+      <h2>¿Prefiere agendar en línea?</h2>
+      <p>Complete el formulario de citas y le confirmaremos según disponibilidad.</p>
+    </div>
+    <a routerLink="/citas" class="btn btn--primary">Solicitar cita</a>
+  </section>
+</div>

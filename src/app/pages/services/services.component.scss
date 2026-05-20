@@ -1,0 +1,114 @@
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3.5rem;
+}
+
+.page__head h1 {
+  margin: 0.35rem 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3vw, 2.1rem);
+  color: var(--color-navy);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  font-weight: 600;
+}
+
+.page__intro {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--color-muted);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.grid {
+  margin-top: 2.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.card__figure {
+  margin: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 400 / 140;
+  object-fit: cover;
+}
+
+.card__body {
+  padding: 1.1rem 1.25rem 1.35rem;
+}
+
+.card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-family: var(--font-display);
+  color: var(--color-navy);
+}
+
+.card p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.55;
+  font-size: 0.92rem;
+}
+
+.cta {
+  margin-top: 2.75rem;
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-accent) 12%, var(--color-surface)) 0%,
+    var(--color-surface) 55%
+  );
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cta h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  font-family: var(--font-display);
+  color: var(--color-navy);
+}
+
+.cta p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  max-width: 46ch;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

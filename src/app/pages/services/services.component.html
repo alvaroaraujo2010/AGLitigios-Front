@@ -1,0 +1,32 @@
+<div class="page">
+  <header class="page__head">
+    <p class="eyebrow">Áreas de práctica</p>
+    <h1>Servicios jurídicos</h1>
+    <p class="page__intro">
+      En {{ site.name }} ofrecemos asesoría y representación legal en Medellín, con soluciones
+      confiables, eficientes y a la medida de cada cliente.
+    </p>
+  </header>
+
+  <div class="grid">
+    @for (a of areas; track a.title) {
+      <article class="card">
+        <figure class="card__figure">
+          <img [src]="a.image" width="400" height="140" alt="" />
+        </figure>
+        <div class="card__body">
+          <h2>{{ a.title }}</h2>
+          <p>{{ a.text }}</p>
+        </div>
+      </article>
+    }
+  </div>
+
+  <section class="cta">
+    <div>
+      <h2>¿Desea concretar una consulta?</h2>
+      <p>Utilice el formulario de citas y recibirá confirmación según disponibilidad.</p>
+    </div>
+    <a routerLink="/citas" class="btn btn--primary">Ir a solicitud de cita</a>
+  </section>
+</div>

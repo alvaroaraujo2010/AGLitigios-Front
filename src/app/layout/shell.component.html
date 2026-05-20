@@ -1,0 +1,66 @@
+<div class="shell">
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a routerLink="/" class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <img src="/assets/images/brand/logo-white.png" alt="" style="margin-top: 10px;" />
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">{{ site.shortName }}</span>
+          <span class="brand__subtitle">{{ site.tagline }}</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Principal">
+        <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
+          >Inicio</a
+        >
+        <a routerLink="/servicios" routerLinkActive="is-active">Servicios</a>
+        <a routerLink="/mision-vision" routerLinkActive="is-active">Misión y visión</a>
+        <a routerLink="/contacto" routerLinkActive="is-active">Contacto</a>
+        <a routerLink="/admin/login" class="nav__panel">Panel despacho</a>
+        <a routerLink="/citas" routerLinkActive="is-active" class="nav__cta">Solicitar cita</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <router-outlet />
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <img
+        class="footer__logo"
+        src="/assets/images/brand/logo-footer.png"
+        alt="AG Litigios COL"
+      />
+      <p class="footer__tagline">{{ site.tagline }}</p>
+      <p class="footer__contact">
+        <a [href]="'tel:' + site.phoneTel">{{ site.phone }}</a>
+        ·
+        <a [href]="site.whatsappUrl" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </p>
+      <p class="footer__address">{{ site.address }}, {{ site.city }}</p>
+      <p class="footer__hours">{{ site.hours }}</p>
+      <p class="footer__social">
+        <a [href]="site.social.facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <span aria-hidden="true">·</span>
+        <a [href]="site.social.instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <span aria-hidden="true">·</span>
+        <a [href]="site.social.youtube" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </p>
+      <p class="footer__aside">
+        <span class="footer__aside-label">{{ engineerService }}:</span>
+        {{ engineerName }} · {{ engineerLicense }} ·
+        <a [href]="'tel:' + engineerPhoneTel">{{ engineerPhone }}</a>
+      </p>
+      <p class="footer__note">
+        La información de este sitio es orientativa y no sustituye una consulta profesional.
+      </p>
+      <p class="footer__copy">© {{ currentYear }} · {{ site.name }}</p>
+      <p class="footer__staff">
+        <a routerLink="/admin/login">Acceso despacho</a>
+      </p>
+    </div>
+  </footer>
+</div>

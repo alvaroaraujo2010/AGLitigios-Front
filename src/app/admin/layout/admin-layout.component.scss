@@ -1,0 +1,84 @@
+.admin-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.admin-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 1.25rem;
+  border-bottom: 1px solid color-mix(in srgb, white 12%, var(--color-navy));
+  background: var(--color-navy);
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-brand__logo-wrap {
+  flex: 0 0 3.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.admin-brand__logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 3.5rem;
+  width: auto;
+  max-width: none;
+  transform: translate(-50%, -50%) scale(2.65);
+  mix-blend-mode: lighten;
+}
+
+.admin-brand__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-on-navy);
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.admin-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--color-on-navy) 78%, transparent);
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.35rem;
+}
+
+.admin-nav a.is-active {
+  color: var(--color-on-navy);
+  background: color-mix(in srgb, white 14%, transparent);
+}
+
+.linkish {
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--color-on-navy) 78%, transparent);
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 1.5rem 1.25rem 2.5rem;
+}

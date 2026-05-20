@@ -1,0 +1,83 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page__head h1 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-navy);
+}
+
+.muted {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.banner {
+  margin: 1rem 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, #b91c1c 8%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, #b91c1c 22%, var(--color-border));
+  color: #7f1d1d;
+  font-size: 0.9rem;
+}
+
+.table-wrap {
+  margin-top: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  overflow: auto;
+}
+
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.tbl th,
+.tbl td {
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tbl th {
+  background: color-mix(in srgb, var(--color-navy) 5%, var(--color-surface));
+  font-weight: 600;
+  color: var(--color-navy);
+  white-space: nowrap;
+}
+
+.detail td {
+  background: color-mix(in srgb, var(--color-bg) 55%, var(--color-surface));
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  line-height: 1.45;
+}
+
+.lbl {
+  font-weight: 600;
+  color: var(--color-text);
+  margin-right: 0.35rem;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.sel {
+  font: inherit;
+  padding: 0.35rem 0.45rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  min-width: 8.5rem;
+}

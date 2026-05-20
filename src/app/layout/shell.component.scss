@@ -1,0 +1,266 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--color-navy);
+  border-bottom: 1px solid color-mix(in srgb, white 12%, var(--color-navy));
+  box-shadow: 0 4px 24px rgba(0, 26, 51, 0.2);
+}
+
+.topbar__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+/* El PNG trae mucho margen negro: recortamos y ampliamos el monograma */
+.brand__mark {
+  flex: 0 0 5.25rem;
+  width: 5.25rem;
+  height: 5.25rem;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+.brand__mark img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: 5.25rem;
+  max-width: none;
+  transform: translate(-50%, -50%) scale(2.65);
+  transform-origin: center center;
+  mix-blend-mode: lighten;
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  line-height: 1.2;
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-on-navy);
+  letter-spacing: 0.02em;
+}
+
+.brand__subtitle {
+  font-size: 0.8rem;
+  color: color-mix(in srgb, var(--color-on-navy) 78%, transparent);
+  max-width: 20rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav a {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--color-on-navy) 78%, transparent);
+  font-size: 0.92rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 0.4rem;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.nav a:hover {
+  color: var(--color-on-navy);
+  background: color-mix(in srgb, white 10%, transparent);
+}
+
+.nav a.is-active {
+  color: var(--color-on-navy);
+  background: color-mix(in srgb, white 14%, transparent);
+}
+
+.nav__panel {
+  font-size: 0.85rem !important;
+  border: 1px solid color-mix(in srgb, white 28%, transparent) !important;
+  color: var(--color-on-navy) !important;
+}
+
+.nav__panel:hover {
+  background: color-mix(in srgb, white 10%, transparent) !important;
+}
+
+.nav__cta {
+  margin-left: 0.25rem;
+  background: var(--color-on-navy) !important;
+  color: var(--color-navy) !important;
+  font-weight: 600;
+}
+
+.nav__cta:hover {
+  background: color-mix(in srgb, var(--color-on-navy) 92%, white) !important;
+  color: var(--color-navy) !important;
+}
+
+.nav__cta.is-active {
+  background: var(--color-on-navy) !important;
+  color: var(--color-navy) !important;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+}
+
+.footer {
+  background: var(--color-navy);
+  border-top: 1px solid color-mix(in srgb, white 10%, var(--color-navy));
+}
+
+.footer__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 2.25rem;
+  text-align: center;
+}
+
+.footer__logo {
+  display: block;
+  margin: 0 auto 1.25rem;
+  width: min(280px, 85vw);
+  height: auto;
+  max-height: 10rem;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+}
+
+.footer__tagline {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-on-navy);
+}
+
+.footer__aside {
+  margin: 0.75rem auto 0.5rem;
+  max-width: 52ch;
+  font-size: 0.76rem;
+  color: color-mix(in srgb, var(--color-on-navy) 62%, transparent);
+  line-height: 1.5;
+}
+
+.footer__aside-label {
+  font-weight: 600;
+  color: color-mix(in srgb, var(--color-on-navy) 72%, transparent);
+}
+
+.footer__aside a {
+  color: color-mix(in srgb, var(--color-on-navy) 78%, transparent);
+  text-decoration: none;
+}
+
+.footer__aside a:hover {
+  text-decoration: underline;
+}
+
+.footer__contact,
+.footer__address,
+.footer__hours {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--color-on-navy) 78%, transparent);
+  line-height: 1.5;
+}
+
+.footer__contact a,
+.footer__social a {
+  color: color-mix(in srgb, var(--color-on-navy) 92%, transparent);
+  text-decoration: none;
+}
+
+.footer__contact a:hover,
+.footer__social a:hover {
+  text-decoration: underline;
+}
+
+.footer__social {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--color-on-navy) 78%, transparent);
+}
+
+.footer__note {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  color: color-mix(in srgb, var(--color-on-navy) 72%, transparent);
+  max-width: 52ch;
+  margin-inline: auto;
+  line-height: 1.45;
+}
+
+.footer__copy {
+  margin: 0;
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--color-on-navy) 65%, transparent);
+}
+
+.footer__staff {
+  margin: 0.65rem 0 0;
+  font-size: 0.75rem;
+}
+
+.footer__staff a {
+  color: color-mix(in srgb, var(--color-on-navy) 80%, transparent);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .topbar__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brand__mark {
+    flex-basis: 4.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .brand__mark img {
+    height: 4.5rem;
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+
+  .brand__subtitle {
+    display: none;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "free-port-4200",
+      "type": "shell",
+      "command": "npx --yes kill-port 4200",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ng serve",
+      "type": "npm",
+      "script": "start",
+      "isBackground": true,
+      "options": {
+        "env": {
+          "CI": "true"
+        }
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "group": "dev",
+        "showReuseMessage": false
+      },
+      "problemMatcher": {
+        "owner": "angular",
+        "pattern": {
+          "regexp": "^.*$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "\\s*❯\\s+Building|Building\\.\\.\\.",
+          "endsPattern": "Local:\\s+http://localhost:4200"
+        }
+      }
+    },
+    {
+      "label": "ng test",
+      "type": "npm",
+      "script": "test",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".",
+          "endsPattern": "bundle generation complete|Executed \\d+ of \\d+"
+        }
+      }
+    }
+  ]
+}

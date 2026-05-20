@@ -1,0 +1,66 @@
+<div class="page">
+  <header class="page__head">
+    <h1>Solicitudes de cita</h1>
+    <p class="muted">Listado protegido. Los visitantes del sitio no tienen acceso a esta vista.</p>
+  </header>
+
+  @if (loadError()) {
+    <p class="banner" role="alert">{{ loadError() }}</p>
+  }
+
+  <div class="table-wrap">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Fecha registro</th>
+          <th>Nombre</th>
+          <th>Contacto</th>
+          <th>Fecha preferida</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (r of rows(); track r.id) {
+          <tr>
+            <td>{{ r.createdAt | date: 'short' }}</td>
+            <td>{{ r.nombreCompleto }}</td>
+            <td>
+              <div class="stack">
+                <span>{{ r.email }}</span>
+                <span class="muted">{{ r.telefono }}</span>
+              </div>
+            </td>
+            <td>
+              {{ r.fechaPreferida }}
+              @if (r.horaPreferida) {
+                <span class="muted"> · {{ r.horaPreferida }}</span>
+              }
+            </td>
+            <td>
+              <select
+                class="sel"
+                [value]="r.estado"
+                [disabled]="savingId() === r.id"
+                (change)="onEstadoChange(r, $event)"
+                [attr.aria-label]="'Estado de ' + r.nombreCompleto"
+              >
+                <option value="pendiente">pendiente</option>
+                <option value="confirmada">confirmada</option>
+                <option value="cancelada">cancelada</option>
+              </select>
+            </td>
+          </tr>
+          <tr class="detail">
+            <td colspan="5">
+              <span class="lbl">Motivo:</span> {{ r.motivoConsulta }}
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" class="muted">No hay solicitudes registradas.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
