@@ -1,5 +1,4 @@
-# Usar este archivo en la RAÍZ del repo AGLitigios-Front (copiar o renombrar como netlify.toml en GitHub).
-# No uses base = "frontend" ni rutas absolutas como /opt/build.
+# Repo AGLitigios-Front (Angular en la raíz). En Netlify: Base y Package vacíos.
 
 [build]
   command = "npm ci && npm run build"
