@@ -3,22 +3,31 @@
     <div class="topbar__inner">
       <a routerLink="/" class="brand">
         <span class="brand__mark" aria-hidden="true">
-          <img src="/assets/images/brand/logo-white.png" alt="" style="margin-top: 10px;" />
+          <img src="/assets/images/brand/logo-white.png" alt="" />
         </span>
-        <span class="brand__text">
-          <span class="brand__name">{{ site.shortName }}</span>
-          <span class="brand__subtitle">{{ site.tagline }}</span>
-        </span>
+        <span class="brand__name">{{ site.shortName }}</span>
+        <span class="brand__subtitle">{{ site.tagline }}</span>
       </a>
       <nav class="nav" aria-label="Principal">
-        <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
-          >Inicio</a
-        >
-        <a routerLink="/servicios" routerLinkActive="is-active">Servicios</a>
-        <a routerLink="/mision-vision" routerLinkActive="is-active">Misión y visión</a>
-        <a routerLink="/contacto" routerLinkActive="is-active">Contacto</a>
-        <a routerLink="/admin/login" class="nav__panel">Panel despacho</a>
-        <a routerLink="/citas" routerLinkActive="is-active" class="nav__cta">Solicitar cita</a>
+        <div class="nav__links">
+          <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
+            >Inicio</a
+          >
+          <a routerLink="/servicios" routerLinkActive="is-active">Servicios</a>
+          <a routerLink="/mision-vision" routerLinkActive="is-active">Misión y visión</a>
+          <a
+            routerLink="/soluciones-inmobiliarias"
+            routerLinkActive="is-active"
+            class="nav__real-estate"
+            title="Soluciones inmobiliarias"
+            >Soluciones<br aria-hidden="true" />inmobiliarias</a
+          >
+          <a routerLink="/contacto" routerLinkActive="is-active">Contacto</a>
+        </div>
+        <div class="nav__actions">
+          <a routerLink="/admin/login" class="nav__panel">Panel despacho</a>
+          <a routerLink="/citas" routerLinkActive="is-active" class="nav__cta">Solicitar cita</a>
+        </div>
       </nav>
     </div>
   </header>

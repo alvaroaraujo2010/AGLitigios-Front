@@ -50,6 +50,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'soluciones-inmobiliarias',
+        loadComponent: () =>
+          import('./pages/real-estate/real-estate.component').then(
+            (m) => m.RealEstateComponent,
+          ),
+      },
+      {
         path: 'contacto',
         loadComponent: () =>
           import('./pages/contact/contact.component').then((m) => m.ContactComponent),

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-label="Apartamento en arriendo">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a9aac"/>
+      <stop offset="100%" stop-color="#001a33"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#sky)"/>
+  <rect x="220" y="90" width="360" height="300" rx="6" fill="#f5f7fa"/>
+  <rect x="250" y="120" width="70" height="55" fill="#dde2e8"/>
+  <rect x="340" y="120" width="70" height="55" fill="#dde2e8"/>
+  <rect x="430" y="120" width="70" height="55" fill="#dde2e8"/>
+  <rect x="520" y="120" width="30" height="55" fill="#dde2e8"/>
+  <rect x="250" y="195" width="300" height="12" fill="#5f6d7e"/>
+  <rect x="250" y="220" width="300" height="130" fill="#eef1f5"/>
+  <rect x="280" y="250" width="90" height="70" fill="#c4a882"/>
+  <text x="400" y="420" text-anchor="middle" fill="#f5f7fa" font-family="Georgia, serif" font-size="28">SE ARRIENDA</text>
+  <text x="400" y="452" text-anchor="middle" fill="#f5f7fa" font-size="16" opacity="0.85">Imagen provisional  se actualizará mañana</text>
+</svg>
