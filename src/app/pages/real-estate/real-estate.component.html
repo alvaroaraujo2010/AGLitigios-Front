@@ -1,0 +1,104 @@
+<div class="page">
+  <header class="page__head">
+    <p class="eyebrow">Soluciones inmobiliarias</p>
+    <h1>Viviendas en arriendo</h1>
+    <p class="page__intro">{{ intro }}</p>
+  </header>
+
+  <div class="grid">
+    @for (p of properties; track p.id) {
+      <article class="card">
+        <figure class="card__figure">
+          <img [src]="p.image" width="800" height="480" [alt]="p.title + ' — ' + p.location" />
+          @if (p.status === 'disponible') {
+            <span class="card__badge">Disponible</span>
+          }
+        </figure>
+        <div class="card__body">
+          <p class="card__type">{{ p.type }} · {{ p.location }}</p>
+          <h2>{{ p.title }}</h2>
+          <p class="card__price">{{ p.priceLabel }}</p>
+          <ul class="card__facts">
+            <li>{{ p.bedrooms }} hab.</li>
+            <li>{{ p.bathrooms }} baños</li>
+            <li>{{ p.area }}</li>
+            <li>{{ p.parking }}</li>
+          </ul>
+          <p class="card__summary">{{ p.summary }}</p>
+          <div class="card__actions">
+            <button type="button" class="btn btn--primary" (click)="openDetails(p)">
+              Ver detalles
+            </button>
+            <a
+              [href]="p.whatsappUrl"
+              class="btn btn--ghost"
+              target="_blank"
+              rel="noopener noreferrer"
+              >WhatsApp</a
+            >
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+
+  <section class="cta">
+    <div>
+      <h2>¿Busca asesoría legal sobre un contrato de arriendo?</h2>
+      <p>{{ site.name }} también le orienta en temas civiles y contractuales.</p>
+    </div>
+    <a routerLink="/citas" class="btn btn--primary">Solicitar cita</a>
+  </section>
+</div>
+
+@if (selected(); as p) {
+  <div class="modal" role="dialog" aria-modal="true" [attr.aria-label]="p.title" (click)="onDialogBackdrop($event)">
+    <div class="modal__panel">
+      <button type="button" class="modal__close" (click)="closeDetails()" aria-label="Cerrar">×</button>
+      <h2 class="modal__title">{{ p.title }}</h2>
+      <p class="modal__meta">{{ p.type }} · {{ p.location }}</p>
+
+      @if (p.videoUrl) {
+        <video class="modal__video" controls playsinline [src]="p.videoUrl">
+          Su navegador no reproduce este formato. Contáctenos por WhatsApp para el recorrido.
+        </video>
+      } @else {
+        <div class="modal__video-placeholder">
+          <p>
+            El recorrido en video se publicará en breve. Mientras tanto, solicítelo por WhatsApp o
+            llame al
+            <a [href]="'tel:' + p.contactPhoneTel">{{ p.contactPhone }}</a
+            >.
+          </p>
+        </div>
+      }
+
+      <div class="modal__grid">
+        <div>
+          <h3>Descripción</h3>
+          <p>{{ p.summary }}</p>
+          <p class="modal__price"><strong>Canon:</strong> {{ p.priceLabel }}</p>
+        </div>
+        <div>
+          <h3>Características</h3>
+          <ul>
+            @for (f of p.features; track f) {
+              <li>{{ f }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div class="modal__footer">
+        <a
+          [href]="p.whatsappUrl"
+          class="btn btn--primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Consultar por WhatsApp</a
+        >
+        <button type="button" class="btn btn--ghost" (click)="closeDetails()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+}
