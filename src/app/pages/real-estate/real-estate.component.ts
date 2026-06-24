@@ -3,6 +3,8 @@ import { RouterLink } from '@angular/router';
 import {
   REAL_ESTATE_INTRO,
   RENTAL_PROPERTIES,
+  RENTAL_REQUIREMENTS,
+  RENTAL_REQUIREMENTS_TITLE,
   type RentalProperty,
 } from '../../core/real-estate-data';
 import { SITE } from '../../core/site-data';
@@ -16,6 +18,8 @@ import { SITE } from '../../core/site-data';
 export class RealEstateComponent {
   readonly site = SITE;
   readonly intro = REAL_ESTATE_INTRO;
+  readonly requirementsTitle = RENTAL_REQUIREMENTS_TITLE;
+  readonly requirements = RENTAL_REQUIREMENTS;
   readonly properties = RENTAL_PROPERTIES;
   readonly selected = signal<RentalProperty | null>(null);
 
@@ -27,6 +31,22 @@ export class RealEstateComponent {
   closeDetails(): void {
     this.selected.set(null);
     document.body.style.overflow = '';
+  }
+
+  posterFor(property: RentalProperty): string {
+    return property.posterImage ?? property.image;
+  }
+
+  isYoutube(property: RentalProperty): boolean {
+    return property.videoType === 'youtube' && !!property.videoUrl;
+  }
+
+  youtubeEmbedUrl(property: RentalProperty): string {
+    return `https://www.youtube.com/embed/${property.videoUrl}?rel=0`;
+  }
+
+  hasVideo(property: RentalProperty): boolean {
+    return !!property.videoUrl;
   }
 
   onDialogBackdrop(event: MouseEvent): void {
