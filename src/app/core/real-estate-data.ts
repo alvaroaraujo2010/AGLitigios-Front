@@ -2,6 +2,11 @@
 
 export type RentalVideoSource = 'file' | 'youtube';
 
+export interface RentalContact {
+  phone: string;
+  phoneTel: string;
+}
+
 export interface RentalProperty {
   id: string;
   title: string;
@@ -18,18 +23,18 @@ export interface RentalProperty {
   posterImage?: string;
   videoUrl: string;
   videoType?: RentalVideoSource;
-  contactPhone: string;
-  contactPhoneTel: string;
-  whatsappUrl: string;
   status: 'disponible' | 'arrendado';
 }
 
-const CONTACT_PHONE = '+57 311 224 4412';
-const CONTACT_PHONE_TEL = '+573112244412';
+export const RENTAL_CONTACTS: readonly RentalContact[] = [
+  { phone: '+57 304 644 9331', phoneTel: '+573046449331' },
+  { phone: '+57 312 852 6032', phoneTel: '+573128526032' },
+];
 
-function whatsappFor(propertyTitle: string): string {
+export function rentalWhatsappUrl(propertyTitle: string, contact: RentalContact): string {
   const text = `Hola, me interesa el inmueble: ${propertyTitle}. ¿Sigue disponible?`;
-  return `https://wa.me/573112244412?text=${encodeURIComponent(text)}`;
+  const digits = contact.phoneTel.replace(/\D/g, '');
+  return `https://wa.me/${digits}?text=${encodeURIComponent(text)}`;
 }
 
 function media(id: string): { image: string; videoUrl: string } {
@@ -71,9 +76,6 @@ export const RENTAL_PROPERTIES: readonly RentalProperty[] = [
     summary:
       'Apartamento en segundo piso en San Javier, con espacios bien distribuidos y parqueadero para motos en el exterior del edificio.',
     ...media('apartamento-san-javier-piso-2'),
-    contactPhone: CONTACT_PHONE,
-    contactPhoneTel: CONTACT_PHONE_TEL,
-    whatsappUrl: whatsappFor('Apartamento San Javier piso 2'),
     status: 'disponible',
   },
   {
@@ -96,9 +98,6 @@ export const RENTAL_PROPERTIES: readonly RentalProperty[] = [
     summary:
       'Apartamento en tercer piso en San Javier. Ideal para quien busca buena ubicación y parqueadero para moto en el exterior del edificio.',
     ...media('apartamento-san-javier-piso-3'),
-    contactPhone: CONTACT_PHONE,
-    contactPhoneTel: CONTACT_PHONE_TEL,
-    whatsappUrl: whatsappFor('Apartamento San Javier piso 3'),
     status: 'disponible',
   },
   {
@@ -115,9 +114,6 @@ export const RENTAL_PROPERTIES: readonly RentalProperty[] = [
     summary:
       'Apartaestudio en primer piso en San Javier, práctico y funcional para una o dos personas.',
     ...media('apartaestudio-san-javier-piso-1'),
-    contactPhone: CONTACT_PHONE,
-    contactPhoneTel: CONTACT_PHONE_TEL,
-    whatsappUrl: whatsappFor('Apartaestudio San Javier piso 1'),
     status: 'disponible',
   },
   {
@@ -134,9 +130,6 @@ export const RENTAL_PROPERTIES: readonly RentalProperty[] = [
     summary:
       'Apartaestudio en segundo piso en San Javier, ambiente amplio y luminoso para arrendamiento mensual.',
     ...media('apartaestudio-san-javier-piso-2'),
-    contactPhone: CONTACT_PHONE,
-    contactPhoneTel: CONTACT_PHONE_TEL,
-    whatsappUrl: whatsappFor('Apartaestudio San Javier piso 2'),
     status: 'disponible',
   },
   {
@@ -161,9 +154,6 @@ export const RENTAL_PROPERTIES: readonly RentalProperty[] = [
     summary:
       'Apartamento amplio en el sector Estadio, segundo piso, con parqueadero privado y excelente distribución para familia.',
     ...media('apartamento-estadio-piso-2'),
-    contactPhone: CONTACT_PHONE,
-    contactPhoneTel: CONTACT_PHONE_TEL,
-    whatsappUrl: whatsappFor('Apartamento sector Estadio piso 2'),
     status: 'disponible',
   },
 ];

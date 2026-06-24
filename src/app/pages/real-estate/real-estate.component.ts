@@ -2,9 +2,12 @@ import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   REAL_ESTATE_INTRO,
+  RENTAL_CONTACTS,
   RENTAL_PROPERTIES,
   RENTAL_REQUIREMENTS,
   RENTAL_REQUIREMENTS_TITLE,
+  rentalWhatsappUrl,
+  type RentalContact,
   type RentalProperty,
 } from '../../core/real-estate-data';
 import { SITE } from '../../core/site-data';
@@ -20,6 +23,7 @@ export class RealEstateComponent {
   readonly intro = REAL_ESTATE_INTRO;
   readonly requirementsTitle = RENTAL_REQUIREMENTS_TITLE;
   readonly requirements = RENTAL_REQUIREMENTS;
+  readonly contacts = RENTAL_CONTACTS;
   readonly properties = RENTAL_PROPERTIES;
   readonly selected = signal<RentalProperty | null>(null);
 
@@ -47,6 +51,10 @@ export class RealEstateComponent {
 
   hasVideo(property: RentalProperty): boolean {
     return !!property.videoUrl;
+  }
+
+  whatsappFor(property: RentalProperty, contact: RentalContact): string {
+    return rentalWhatsappUrl(property.title, contact);
   }
 
   onDialogBackdrop(event: MouseEvent): void {

@@ -13,6 +13,12 @@
         <li>{{ req }}</li>
       }
     </ol>
+    <p class="requirements__contact">
+      Consultas por WhatsApp o teléfono:
+      @for (c of contacts; track c.phoneTel; let last = $last) {
+        <a [href]="'tel:' + c.phoneTel">{{ c.phone }}</a>@if (!last) {<span aria-hidden="true"> · </span>}
+      }
+    </p>
   </section>
 
   <div class="grid">
@@ -43,13 +49,15 @@
                 Ver detalles
               }
             </button>
-            <a
-              [href]="p.whatsappUrl"
-              class="btn btn--ghost"
-              target="_blank"
-              rel="noopener noreferrer"
-              >WhatsApp</a
-            >
+            @for (c of contacts; track c.phoneTel) {
+              <a
+                [href]="whatsappFor(p, c)"
+                class="btn btn--ghost"
+                target="_blank"
+                rel="noopener noreferrer"
+                >WhatsApp {{ c.phone }}</a
+              >
+            }
           </div>
         </div>
       </article>
@@ -97,9 +105,10 @@
         <div class="modal__video-placeholder">
           <p>
             El recorrido en video se publicará en breve. Mientras tanto, solicítelo por WhatsApp o
-            llame al
-            <a [href]="'tel:' + p.contactPhoneTel">{{ p.contactPhone }}</a
-            >.
+            llame a
+            @for (c of contacts; track c.phoneTel; let last = $last) {
+              <a [href]="'tel:' + c.phoneTel">{{ c.phone }}</a>@if (!last) {<span aria-hidden="true"> o </span>}
+            }.
           </p>
         </div>
       }
@@ -130,13 +139,15 @@
       </section>
 
       <div class="modal__footer">
-        <a
-          [href]="p.whatsappUrl"
-          class="btn btn--primary"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Consultar por WhatsApp</a
-        >
+        @for (c of contacts; track c.phoneTel) {
+          <a
+            [href]="whatsappFor(p, c)"
+            class="btn btn--primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            >WhatsApp {{ c.phone }}</a
+          >
+        }
         <button type="button" class="btn btn--ghost" (click)="closeDetails()">Cerrar</button>
       </div>
     </div>

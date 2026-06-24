@@ -60,6 +60,23 @@
   margin-top: 0.35rem;
 }
 
+.requirements__contact {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.requirements__contact a {
+  color: var(--color-navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.requirements__contact a:hover {
+  text-decoration: underline;
+}
+
 .grid {
   margin-top: 2rem;
   display: grid;
